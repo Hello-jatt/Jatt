@@ -38,4 +38,4 @@ def send_message(email):
         return jsonify({"error": "Email not found"}), 404
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=81)
+    app.run(debug=True)  # Set to 'True' for debugging errors

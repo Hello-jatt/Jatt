@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify
 import random
 import string
@@ -38,4 +39,6 @@ def send_message(email):
         return jsonify({"error": "Email not found"}), 404
 
 if __name__ == '__main__':
-    app.run(debug=True)  # Set to 'True' for debugging errors
+    # Use environment variable for the port, or default to 5000 for local testing
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
